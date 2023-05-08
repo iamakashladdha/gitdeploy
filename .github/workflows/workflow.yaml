@@ -2,8 +2,8 @@ name: Astronomer CI - Deploy code (Multiple Branches)
 
 on:
   push:
-    branches: [dev]
-    
+    branches: [main]
+
 jobs:
   dev-push:
     if: github.ref == 'refs/heads/dev'
