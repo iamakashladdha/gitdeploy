@@ -1,8 +1,10 @@
 name: Astronomer CI - Deploy code (Multiple Branches)
 
+# run on any push to dev/main, and PR to main
 on:
   push:
-    branches: [dev]
+    branches: [dev, main]
+
   pull_request:
     types:
       - closed
@@ -20,7 +22,7 @@ jobs:
     - name: Deploy to Astro
       uses: astronomer/deploy-action@v0.1
   prod-push:
-    if: github.event.action == 'closed' && github.event.pull_request.merged == true
+    if: github.ref == 'refs/heads/main'
     env:
       ## Sets PROD Deployment API key credentials as environment variables
       ASTRONOMER_KEY_ID: ${{ secrets.PROD_ASTRONOMER_KEY_ID }}
