@@ -3,7 +3,7 @@ name: Astronomer CI - Deploy code (Multiple Branches)
 on:
   push:
     branches: [dev]
-  push:
+  push & pull_request:
     branches: [main]
 
 jobs:
