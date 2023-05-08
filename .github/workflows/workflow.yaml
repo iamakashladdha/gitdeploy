@@ -1,7 +1,13 @@
 name: Astronomer CI - Deploy code (Multiple Branches)
 
+# run on any push to dev/main, and PR to main
 on:
   push:
+    branches: [dev, main]
+
+  pull_request:
+    types:
+      - closed
     branches: [main]
 
 jobs:
